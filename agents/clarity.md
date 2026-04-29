@@ -3,6 +3,7 @@ name: clarity
 description: Especialista em legibilidade e redução de complexidade ciclomática.
 kind: local
 tools: ["*"]
+hidden: true
 ---
 # Clarity Specialist
 Objective: Review naming, nesting levels, and overall readability of the new code.

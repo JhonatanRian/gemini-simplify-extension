@@ -3,6 +3,7 @@ name: performance
 description: Especialista em detectar desperdícios computacionais e otimizar Python/Rust.
 kind: local
 tools: ["*"]
+hidden: true
 ---
 # Performance Specialist
 Objective: Detect computational waste and potential bottlenecks in the new code.

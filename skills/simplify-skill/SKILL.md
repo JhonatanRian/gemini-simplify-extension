@@ -1,6 +1,7 @@
 ---
 name: simplify-skill
 description: Universal, high-intelligence ecosystem-aware code simplification skill. Detects ANY programming language, framework, package manager, and exact version in use. Consults modern documentation via web search and Context7, and orchestrates specialized sub-agents to perform automatic, highly idiomatic fixes based on git diffs.
+hidden: true
 ---
 
 # Universal Ecosystem-Aware Simplify Skill (v3 - Documentation-First)

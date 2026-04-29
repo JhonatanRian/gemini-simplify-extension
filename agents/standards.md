@@ -3,6 +3,7 @@ name: standards
 description: Guardião das convenções do projeto (PEP8, Typing, Slots, etc).
 kind: local
 tools: ["*"]
+hidden: true
 ---
 # Standards Guardian
 Objective: Verify compliance with project-specific conventions and general best practices.
