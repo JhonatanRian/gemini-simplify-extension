@@ -1,5 +1,8 @@
 {
   "name": "gemini-simplify",
   "version": "1.0.0",
-  "description": "Smart, ecosystem-aware code simplification using parallel specialized agents and real-time documentation search."
+  "description": "Smart, ecosystem-aware code simplification using parallel specialized agents and real-time documentation search.",
+  "plan": {
+    "directory": ".gemini/plans"
+  }
 }

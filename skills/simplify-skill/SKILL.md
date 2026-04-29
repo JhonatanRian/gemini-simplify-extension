@@ -12,8 +12,9 @@ This command transforms the assistant into an **Elite Polyglot Software Architec
 
 ### Phase 0: Analytical Mapping (The Universal Detective)
 Identify the exact environment and its constraints **without modifying files**.
-1. **Manifests & Lockfiles:** Analyze dependency files (`pyproject.toml`, `package.json`, `Cargo.toml`, `go.mod`, `pom.xml`, etc.) to pinpoint the exact language version and framework versions.
-2. **Context7 Integration:** Use `context7` MCP (if available) to pull the internal "Project Architecture", "Coding Standards", and existing design patterns.
+1. **Previous Plans:** Check the plan directory (`.gemini/plans/`) for previous `/simplify` summaries. If found, read them to understand prior architectural decisions and avoid repeating analysis.
+2. **Manifests & Lockfiles:** Analyze dependency files (`pyproject.toml`, `package.json`, `Cargo.toml`, `go.mod`, `pom.xml`, etc.) to pinpoint the exact language version and framework versions.
+3. **Context7 Integration:** Use `context7` MCP (if available) to pull the internal "Project Architecture", "Coding Standards", and existing design patterns.
 
 ### Phase 1: Grounding & Modern Syntax Research (Zero Hallucination)
 1. **Identify Version Gaps:** Acknowledge the detected versions (e.g., Node 14 vs Node 22). What modern features does the target runtime support natively?
@@ -32,7 +33,12 @@ Invoke the 4 specialized sub-agents concurrently (`wait_for_previous: false`). E
 1. Wait for all 4 agents.
 2. Filter out false positives blindly without arguing. Aggregate the valid findings.
 3. Apply the fixes directly using `replace` or `write_file`.
-4. **Architectural Summary:** Present the user with a technical summary. Example: *"Based on the detection of [Tech Stack vX], we flattened the conditionals (Clarity), parallelized the I/O (Performance), and applied the new native syntax according to the official docs (Standards)."*
+4. **Lint & Format:** Run the project's linter with auto-fix (e.g., `eslint --fix`, `ruff format`, `cargo fmt`, `gofmt`) to ensure stylistic consistency.
+5. **Verification:** Run the project's test suite (e.g., `npm test`, `pytest`, `cargo test`, `go test ./...`). If tests fail:
+   - Revert the failing changes using `git checkout -- <file>`.
+   - Analyze the failure, attempt an alternative simplification approach, and re-run tests.
+   - If the second attempt also fails, report the issue to the user without applying the change.
+6. **Architectural Summary:** Present the user with a technical summary. Save this summary to the plan directory (`.gemini/plans/simplify-<date>.md`) for future reference. Example: *"Based on the detection of [Tech Stack vX], we flattened the conditionals (Clarity), parallelized the I/O (Performance), and applied the new native syntax according to the official docs (Standards)."*
 
 ## Golden Rules
 - **Total Universality:** Never assume the stack is Python or JS. Be prepared to refactor COBOL, Rust, Go, or legacy PHP with the exact same level of engineering rigor.

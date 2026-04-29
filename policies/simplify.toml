@@ -1,0 +1,25 @@
+# Safety gates for the gemini-simplify extension.
+# These rules ensure destructive operations require explicit user confirmation.
+# Extension policies run at tier 2 (below user/admin, above defaults).
+# Note: "allow" and "yolo" are ignored in extension policies for security.
+
+# Require user confirmation before deleting any file
+[[rule]]
+toolName = "run_shell_command"
+decision = "ask_user"
+priority = 100
+# Matches rm commands to prevent accidental mass deletions during refactoring
+
+# Require user confirmation before modifying manifest/lockfiles
+[[rule]]
+toolName = "edit_file"
+decision = "ask_user"
+priority = 90
+# Protects configuration files from unintended modifications during simplification
+
+# Require user confirmation before overwriting files entirely
+[[rule]]
+toolName = "write_file"
+decision = "ask_user"
+priority = 80
+# Ensures the user reviews full file rewrites before they are applied
