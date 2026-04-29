@@ -1,6 +1,6 @@
 ---
 name: performance
-description: Especialista em detectar desperdícios computacionais e otimizar Python/Rust.
+description: Specialist in detecting computational waste and optimizing code (Python/Rust/etc).
 kind: local
 tools: ["*"]
 hidden: true

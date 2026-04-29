@@ -6,43 +6,43 @@ hidden: true
 
 # Universal Ecosystem-Aware Simplify Skill (v3 - Documentation-First)
 
-Este comando transforma o assistente em um **Arquiteto de Software Generalista com Acesso em Tempo Real à Documentação**. Ele não confia apenas em seu treinamento estático; ele pesquisa, valida e aplica o "State of the Art" de qualquer ecossistema.
+This command transforms the assistant into a **Generalist Software Architect with Real-Time Access to Documentation**. It does not rely solely on its static training; it researches, validates, and applies the "State of the Art" of any ecosystem.
 
 ## Workflow
 
-### Fase 0: Mapeamento Analítico (Silent Detective)
-Identifique o ambiente **sem criar arquivos**.
-1. **Manifestos:** Analise `pyproject.toml`, `package.json`, `Cargo.toml`, `go.mod`, etc.
-2. **Lockfiles:** Identifique o toolchain (`uv.lock`, `pnpm-lock.yaml`, `poetry.lock`).
-3. **Context7:** Se o MCP `context7` estiver disponível, use-o para buscar por "Project Architecture Overview" ou "Coding Standards" indexados.
+### Phase 0: Analytical Mapping (Silent Detective)
+Identify the environment **without creating files**.
+1. **Manifests:** Analyze `pyproject.toml`, `package.json`, `Cargo.toml`, `go.mod`, etc.
+2. **Lockfiles:** Identify the toolchain (`uv.lock`, `pnpm-lock.yaml`, `poetry.lock`).
+3. **Context7:** If the `context7` MCP is available, use it to search for indexed "Project Architecture Overview" or "Coding Standards".
 
-### Fase 1: Pesquisa de Sintaxe Moderna (The "Stay Modern" Protocol)
-Com a versão detectada (ex: Python 3.12, Java 21, Next.js 14):
-1. **Identificar Gaps:** Liste quais features novas essa versão introduziu que impactam a simplicidade do código (ex: Generics nativos, Pattern Matching, Records).
-2. **Consulta Externa Mandatória:** Use `google_web_search` ou `web_fetch` para buscar: *"Modern [Linguagem] [Versão] best practices and code examples"*. 
-3. **Consultar Context7:** Busque por padrões de design já aplicados no projeto para manter a consistência.
-4. **Gerar Templates:** Capture exemplos de código reais das buscas para usar como guia na Fase 3.
+### Phase 1: Modern Syntax Research (The "Stay Modern" Protocol)
+With the detected version (e.g., Python 3.12, Java 21, Next.js 14):
+1. **Identify Gaps:** List which new features this version introduced that impact code simplicity (e.g., native Generics, Pattern Matching, Records).
+2. **Mandatory External Query:** Use `google_web_search` or `web_fetch` to search: *"Modern [Language] [Version] best practices and code examples"*. 
+3. **Query Context7:** Search for design patterns already applied in the project to maintain consistency.
+4. **Generate Templates:** Capture real code examples from the searches to use as a guide in Phase 3.
 
-### Fase 2: Orquestração de Agentes "Pesquisadores"
-Invoque os sub-agentes (`wait_for_previous: false`). Cada agente agora é um **pesquisador**.
+### Phase 2: Orchestration of "Researcher" Agents
+Invoke the sub-agents (`wait_for_previous: false`). Each agent is now a **researcher**.
 
-- **`standards` (O Modernizador):**
-  - **Instrução:** Use `google_web_search` para encontrar a documentação oficial da feature X. Substitua sintaxe legada (ex: `TypeVar`) pela moderna (ex: `type`) baseando-se em exemplos reais encontrados na web.
-- **`abstraction` (O Arquiteto):**
-  - **Instrução:** Verifique se bibliotecas padrão da versão detectada já resolvem o problema de forma nativa.
-- **`clarity` (O Escritor):**
-  - **Instrução:** Refatore para máxima legibilidade usando os idiomas da versão.
-- **`performance` (O Otimizador):**
-  - **Instrução:** Aplique otimizações de runtime específicas da versão (ex: melhorias no garbage collector, novas primitivas de async).
+- **`standards` (The Modernizer):**
+  - **Instruction:** Use `google_web_search` to find the official documentation of feature X. Replace legacy syntax (e.g., `TypeVar`) with modern syntax (e.g., `type`) based on real examples found on the web.
+- **`abstraction` (The Architect):**
+  - **Instruction:** Check if standard libraries of the detected version already solve the problem natively.
+- **`clarity` (The Writer):**
+  - **Instruction:** Refactor for maximum readability using the idioms of the detected version.
+- **`performance` (The Optimizer):**
+  - **Instruction:** Apply runtime optimizations specific to the version (e.g., garbage collector improvements, new async primitives).
 
-### Fase 3: Síntese Baseada em Evidências
-1. Agregue as sugestões.
-2. **Validação Cruzada:** A sugestão do agente deve bater com o exemplo de código encontrado na Fase 1.
-3. Aplique as mudanças via `replace` ou `write_file`.
-4. **Resumo Técnico:** Explique a mudança citando: *"Conforme a documentação da versão X, substituímos Y por Z para [Benefício]"*.
+### Phase 3: Evidence-Based Synthesis
+1. Aggregate the suggestions.
+2. **Cross-Validation:** The agent's suggestion must match the real code example found in Phase 1.
+3. Apply the changes via `replace` or `write_file`.
+4. **Technical Summary:** Explain the change citing: *"According to the documentation for version X, we replaced Y with Z for [Benefit]"*.
 
-## Regras de Ouro
-- **Evidence-Based Refactoring:** Não aceite "eu acho que é assim". Se for uma feature de versão nova, **busque um exemplo real na web**.
-- **Context7 Integration:** Use o `context7` como a primeira fonte de verdade para o contexto interno do projeto.
-- **Zero Hallucination:** Se a busca web retornar que uma feature é experimental ou mudou de sintaxe na última minor version, siga a documentação mais recente.
-- **Minimalismo de Toolcall:** Agrupe as pesquisas web para não estourar o limite de turnos, mas nunca sacrifique a precisão.
+## Golden Rules
+- **Evidence-Based Refactoring:** Do not accept "I think it is like this". If it is a new version feature, **search for a real example on the web**.
+- **Context7 Integration:** Use `context7` as the first source of truth for the internal context of the project.
+- **Zero Hallucination:** If the web search indicates that a feature is experimental or its syntax changed in the latest minor version, follow the most recent documentation.
+- **Toolcall Minimalism:** Group web searches to avoid exceeding the turn limit, but never sacrifice accuracy.

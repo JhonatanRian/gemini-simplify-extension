@@ -1,6 +1,6 @@
 ---
 name: clarity
-description: Especialista em legibilidade e redução de complexidade ciclomática.
+description: Specialist in readability and cyclomatic complexity reduction.
 kind: local
 tools: ["*"]
 hidden: true

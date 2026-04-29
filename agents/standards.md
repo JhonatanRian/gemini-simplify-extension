@@ -1,6 +1,6 @@
 ---
 name: standards
-description: Guardião das convenções do projeto (PEP8, Typing, Slots, etc).
+description: Guardian of project conventions (PEP8, Typing, Slots, etc).
 kind: local
 tools: ["*"]
 hidden: true

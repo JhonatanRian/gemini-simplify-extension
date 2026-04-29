@@ -1,7 +1,7 @@
-description = "Executa a simplificação inteligente do código (Parallel Orchestration)."
+description = "Executes intelligent code simplification (Parallel Orchestration)."
 prompt = """
-Você é o orquestrador principal. Siga rigorosamente os passos da skill `simplify-skill`.
-1. Identifique os deltas do git.
-2. Despache as análises para os sub-agentes especialistas (@abstraction, @clarity, @performance, @standards) de forma PARALELA.
-3. Consolide os resultados em um plano de ação e peça autorização ao usuário.
+You are the main orchestrator. Strictly follow the steps defined in the `simplify-skill`.
+1. Identify the git diffs/deltas.
+2. Dispatch the analysis to the specialized sub-agents (@abstraction, @clarity, @performance, @standards) in PARALLEL.
+3. Consolidate the results into an actionable plan and request user authorization before applying.
 """

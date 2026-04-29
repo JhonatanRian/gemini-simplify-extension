@@ -1,6 +1,6 @@
 ---
 name: abstraction
-description: Especialista em identificar duplicação de lógica e padrões arquiteturais.
+description: Specialist in identifying logic duplication and architectural patterns.
 kind: local
 tools: ["*"]
 hidden: true
