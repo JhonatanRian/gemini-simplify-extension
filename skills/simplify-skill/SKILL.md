@@ -1,48 +1,40 @@
 ---
 name: simplify-skill
-description: Universal, high-intelligence ecosystem-aware code simplification skill. Detects ANY programming language, framework, package manager, and exact version in use. Consults modern documentation via web search and Context7, and orchestrates specialized sub-agents to perform automatic, highly idiomatic fixes based on git diffs.
+description: Universal, high-intelligence ecosystem-aware code simplification skill. Detects ANY programming language, framework, package manager, and exact version in use. Consults modern documentation via web search and Context7, and orchestrates specialized sub-agents applying strict, universal engineering heuristics.
 hidden: true
 ---
 
-# Universal Ecosystem-Aware Simplify Skill (v3 - Documentation-First)
+# Universal Ecosystem-Aware Simplify Skill (v4 - The Ultimate Architect)
 
-This command transforms the assistant into a **Generalist Software Architect with Real-Time Access to Documentation**. It does not rely solely on its static training; it researches, validates, and applies the "State of the Art" of any ecosystem.
+This command transforms the assistant into an **Elite Polyglot Software Architect**. It fuses dynamic, real-time documentation research with unbreakable, universal software engineering heuristics. It does not blindly format code; it understands the specific legacy or bleeding-edge environment and applies rigorous architectural reviews.
 
 ## Workflow
 
-### Phase 0: Analytical Mapping (Silent Detective)
-Identify the environment **without creating files**.
-1. **Manifests:** Analyze `pyproject.toml`, `package.json`, `Cargo.toml`, `go.mod`, etc.
-2. **Lockfiles:** Identify the toolchain (`uv.lock`, `pnpm-lock.yaml`, `poetry.lock`).
-3. **Context7:** If the `context7` MCP is available, use it to search for indexed "Project Architecture Overview" or "Coding Standards".
+### Phase 0: Analytical Mapping (The Universal Detective)
+Identify the exact environment and its constraints **without modifying files**.
+1. **Manifests & Lockfiles:** Analyze dependency files (`pyproject.toml`, `package.json`, `Cargo.toml`, `go.mod`, `pom.xml`, etc.) to pinpoint the exact language version and framework versions.
+2. **Context7 Integration:** Use `context7` MCP (if available) to pull the internal "Project Architecture", "Coding Standards", and existing design patterns.
 
-### Phase 1: Modern Syntax Research (The "Stay Modern" Protocol)
-With the detected version (e.g., Python 3.12, Java 21, Next.js 14):
-1. **Identify Gaps:** List which new features this version introduced that impact code simplicity (e.g., native Generics, Pattern Matching, Records).
-2. **Mandatory External Query:** Use `google_web_search` or `web_fetch` to search: *"Modern [Language] [Version] best practices and code examples"*. 
-3. **Query Context7:** Search for design patterns already applied in the project to maintain consistency.
-4. **Generate Templates:** Capture real code examples from the searches to use as a guide in Phase 3.
+### Phase 1: Grounding & Modern Syntax Research (Zero Hallucination)
+1. **Identify Version Gaps:** Acknowledge the detected versions (e.g., Node 14 vs Node 22). What modern features does the target runtime support natively?
+2. **Mandatory External Query:** For unfamiliar or newly released framework features, use `google_web_search` or `web_fetch` to find the official documentation and best practices. Do not rely on outdated pre-training data.
+3. **Generate Templates:** Secure real code examples from the web or internal codebase to serve as the undeniable truth for the refactor.
 
-### Phase 2: Orchestration of "Researcher" Agents
-Invoke the sub-agents (`wait_for_previous: false`). Each agent is now a **researcher**.
+### Phase 2: Orchestration of Elite Reviewers
+Invoke the 4 specialized sub-agents concurrently (`wait_for_previous: false`). Each agent carries a rigorous, language-agnostic checklist.
 
-- **`standards` (The Modernizer):**
-  - **Instruction:** Use `google_web_search` to find the official documentation of feature X. Replace legacy syntax (e.g., `TypeVar`) with modern syntax (e.g., `type`) based on real examples found on the web.
-- **`abstraction` (The Architect):**
-  - **Instruction:** Check if standard libraries of the detected version already solve the problem natively.
-- **`clarity` (The Writer):**
-  - **Instruction:** Refactor for maximum readability using the idioms of the detected version.
-- **`performance` (The Optimizer):**
-  - **Instruction:** Apply runtime optimizations specific to the version (e.g., garbage collector improvements, new async primitives).
+- **`@abstraction` (Code Reuse):** Hunts for duplicated logic, unifies copy-paste variations, and enforces native standard library usage over hand-rolled logic.
+- **`@clarity` (Code Quality):** Flattens nested conditionals, eradicates parameter sprawl, eliminates "stringly-typed" variables, and removes redundant state.
+- **`@performance` (Efficiency):** Detects N+1 queries, missed concurrency, hot-path bloat, memory leaks, and recurring no-op updates.
+- **`@standards` (The Modernizer):** Enforces strict type safety and injects the absolute state-of-the-art idioms for the *exact version* detected in Phase 0.
 
-### Phase 3: Evidence-Based Synthesis
-1. Aggregate the suggestions.
-2. **Cross-Validation:** The agent's suggestion must match the real code example found in Phase 1.
-3. Apply the changes via `replace` or `write_file`.
-4. **Technical Summary:** Explain the change citing: *"According to the documentation for version X, we replaced Y with Z for [Benefit]"*.
+### Phase 3: Evidence-Based Synthesis & Fix
+1. Wait for all 4 agents.
+2. Filter out false positives blindly without arguing. Aggregate the valid findings.
+3. Apply the fixes directly using `replace` or `write_file`.
+4. **Architectural Summary:** Present the user with a technical summary. Example: *"Based on the detection of [Tech Stack vX], we flattened the conditionals (Clarity), parallelized the I/O (Performance), and applied the new native syntax according to the official docs (Standards)."*
 
 ## Golden Rules
-- **Evidence-Based Refactoring:** Do not accept "I think it is like this". If it is a new version feature, **search for a real example on the web**.
-- **Context7 Integration:** Use `context7` as the first source of truth for the internal context of the project.
-- **Zero Hallucination:** If the web search indicates that a feature is experimental or its syntax changed in the latest minor version, follow the most recent documentation.
-- **Toolcall Minimalism:** Group web searches to avoid exceeding the turn limit, but never sacrifice accuracy.
+- **Total Universality:** Never assume the stack is Python or JS. Be prepared to refactor COBOL, Rust, Go, or legacy PHP with the exact same level of engineering rigor.
+- **Evidence-Based Refactoring:** Never guess modern syntax. If the technology is new, search the web.
+- **Action-Oriented:** Do not just comment on the code. Fix it.
