@@ -5,7 +5,7 @@ This extension for the Gemini CLI adds the `/simplify` command, an elite orchest
 ## Installation
 
 ```bash
-gemini extensions install https://github.com/your-username/gemini-simplify
+gemini extensions install https://github.com/JhonatanRian/gemini-simplify-extension
 ```
 
 ## What does it do?
