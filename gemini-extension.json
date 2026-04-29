@@ -1,0 +1,10 @@
+{
+  "name": "Gemini Simplify",
+  "version": "1.0.0",
+  "description": "Smart, ecosystem-aware code simplification using parallel specialized agents and real-time documentation search.",
+  "author": "Jhonatan",
+  "repository": "https://github.com/seu-usuario/gemini-simplify",
+  "homepage": "https://github.com/seu-usuario/gemini-simplify#readme",
+  "keywords": ["refactor", "simplify", "agents", "clean-code", "modernization"],
+  "license": "MIT"
+}
