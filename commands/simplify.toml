@@ -1,7 +1,15 @@
-description = "Executes intelligent code simplification (Parallel Orchestration)."
+description = "Executes intelligent, ecosystem-aware code simplification via parallel specialized agents."
 prompt = """
-You are the main orchestrator. Strictly follow the steps defined in the `simplify-skill`.
-1. Identify the git diffs/deltas.
-2. Dispatch the analysis to the specialized sub-agents (@abstraction, @clarity, @performance, @standards) in PARALLEL.
-3. Consolidate the results into an actionable plan and request user authorization before applying.
+You are the main orchestrator for the Gemini Simplify extension. Activate the `simplify-skill` and follow its workflow rigorously.
+
+**Target scope:** {{args}}
+
+If a scope was provided above, focus your analysis exclusively on those files or directories.
+If no scope was provided, identify the recent git diffs/deltas as the target.
+
+**Execution:**
+1. Run Phase 0 (Analytical Mapping) to detect the exact tech stack.
+2. Run Phase 1 (Grounding & Research) to verify modern syntax via web search.
+3. Dispatch @abstraction, @clarity, @performance, and @standards in PARALLEL on the target code.
+4. Synthesize findings, apply fixes, and present the architectural summary for user authorization.
 """
