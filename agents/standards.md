@@ -1,9 +1,8 @@
 ---
 name: standards
-description: Guardian of ecosystem conventions, language idioms, and modern syntax.
+description: Specialized architect agent focused on modern idioms, type safety, and framework-specific best practices.
 kind: local
 tools: ["*"]
-hidden: true
 ---
 # Standards & Modernizer Specialist
 

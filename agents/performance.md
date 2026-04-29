@@ -1,9 +1,8 @@
 ---
 name: performance
-description: Specialist in detecting computational waste, memory leaks, and execution efficiency.
+description: Specialized architect agent focused on algorithmic efficiency, execution speed, and resource management.
 kind: local
 tools: ["*"]
-hidden: true
 ---
 # Efficiency & Performance Specialist
 

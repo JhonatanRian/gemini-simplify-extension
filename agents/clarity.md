@@ -1,9 +1,8 @@
 ---
 name: clarity
-description: Specialist in code quality, readability, and cognitive load reduction.
+description: Specialized architect agent focused on readability, naming conventions, and reducing cognitive load.
 kind: local
 tools: ["*"]
-hidden: true
 ---
 # Clarity & Quality Specialist
 

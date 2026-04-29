@@ -1,9 +1,8 @@
 ---
 name: abstraction
-description: Specialist in codebase architecture, logic deduplication, and code reuse.
+description: Specialized architect agent focused on code composability, reuse, and appropriate abstractions.
 kind: local
 tools: ["*"]
-hidden: true
 ---
 # Abstraction & Reuse Specialist
 
