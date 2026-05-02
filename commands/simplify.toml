@@ -8,8 +8,10 @@ If a scope was provided above, focus your analysis exclusively on those files or
 If no scope was provided, identify the recent git diffs/deltas as the target.
 
 **Execution:**
-1. Run Phase 0 (Analytical Mapping) to detect the exact tech stack.
-2. Run Phase 1 (Grounding & Research) to verify modern syntax via web search.
-3. Dispatch @abstraction, @clarity, @performance, and @standards in PARALLEL on the target code.
-4. Synthesize findings, apply fixes, and present the architectural summary for user authorization.
+1. Run Phase 0 (Analytical Mapping): Explicitly list detected manifests and tech versions.
+2. Run Phase 1 (Grounding & Research): Search for modern syntax and provide evidence.
+3. Dispatch @abstraction, @clarity, @performance, and @standards in PARALLEL to gather **reports only**. They must not modify files.
+4. Synthesize reports, resolve conflicts, and present a single **Refactoring Plan**.
+5. **STOP:** Wait for user authorization before applying any fixes.
+6. After approval, apply fixes, lint, and run tests.
 """

@@ -22,23 +22,24 @@ Identify the exact environment and its constraints **without modifying files**.
 3. **Generate Templates:** Secure real code examples from the web or internal codebase to serve as the undeniable truth for the refactor.
 
 ### Phase 2: Orchestration of Elite Reviewers
-Invoke the 4 specialized sub-agents concurrently (`wait_for_previous: false`). Each agent carries a rigorous, language-agnostic checklist.
+Invoke the 4 specialized sub-agents concurrently (`wait_for_previous: false`).
+**Crucial:** Agents must NOT modify files. They must only produce a structured analysis report (Markdown or JSON) with specific line numbers and proposed changes.
 
-- **`@abstraction` (Code Reuse):** Hunts for duplicated logic, unifies copy-paste variations, and enforces native standard library usage over hand-rolled logic.
-- **`@clarity` (Code Quality):** Flattens nested conditionals, eradicates parameter sprawl, eliminates "stringly-typed" variables, and removes redundant state.
-- **`@performance` (Efficiency):** Detects N+1 queries, missed concurrency, hot-path bloat, memory leaks, and recurring no-op updates.
-- **`@standards` (The Modernizer):** Enforces strict type safety and injects the absolute state-of-the-art idioms for the *exact version* detected in Phase 0.
+- **`@abstraction` (Code Reuse):** Hunts for duplicated logic and unified abstractions.
+- **`@clarity` (Code Quality):** Identifies complexity and naming issues.
+- **`@performance` (Efficiency):** Detects bottlenecks and concurrency opportunities.
+- **`@standards` (The Modernizer):** Validates syntax against the exact version detected.
 
 ### Phase 3: Evidence-Based Synthesis & Fix
-1. Wait for all 4 agents.
-2. Filter out false positives blindly without arguing. Aggregate the valid findings.
-3. Apply the fixes directly using `replace` or `write_file`.
-4. **Lint & Format:** Run the project's linter with auto-fix (e.g., `eslint --fix`, `ruff format`, `cargo fmt`, `gofmt`) to ensure stylistic consistency.
-5. **Verification:** Run the project's test suite (e.g., `npm test`, `pytest`, `cargo test`, `go test ./...`). If tests fail:
-   - Revert the failing changes using `git checkout -- <file>`.
-   - Analyze the failure, attempt an alternative simplification approach, and re-run tests.
-   - If the second attempt also fails, report the issue to the user without applying the change.
-6. **Architectural Summary:** Present the user with a technical summary. Save this summary to the plan directory (`.gemini/plans/simplify-<date>.md`) for future reference. Example: *"Based on the detection of [Tech Stack vX], we flattened the conditionals (Clarity), parallelized the I/O (Performance), and applied the new native syntax according to the official docs (Standards)."*
+1. **Consolidation:** Wait for all 4 reports. Compare recommendations. If two agents suggest changes to the same block, resolve the conflict based on the priority: Standards > Performance > Clarity > Abstraction.
+2. **User Authorization:** Present a single, comprehensive "Refactoring Plan" to the user. **Note:** Inform the user that they will still need to confirm individual file modifications via the system's safety gates (Policy). **Wait for explicit user approval before any file modification.**
+3. **Execution:** Once authorized, apply the fixes using surgical `replace` calls.
+4. **Lint & Format:** Run the project's linter (e.g., `eslint --fix`, `ruff format`).
+5. **Verification:**
+   - Run the project's test suite.
+   - If tests fail, use `git checkout -- <file>` to revert specifically the failing files.
+   - Log the failure and try a less aggressive simplification if possible.
+6. **Persistence:** Save the final summary to `.gemini/plans/simplify-<date>.md`.
 
 ## Golden Rules
 - **Total Universality:** Never assume the stack is Python or JS. Be prepared to refactor COBOL, Rust, Go, or legacy PHP with the exact same level of engineering rigor.
