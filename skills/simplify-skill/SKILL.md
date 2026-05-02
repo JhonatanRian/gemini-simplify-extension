@@ -41,7 +41,18 @@ Invoke the 4 specialized sub-agents concurrently (`wait_for_previous: false`).
    - Log the failure and try a less aggressive simplification if possible.
 6. **Persistence:** Save the final summary to `.gemini/plans/simplify-<date>.md`.
 
+### Phase 4: Final Cleanup & Polishing (The Finisher)
+After all structural changes are verified, perform a final pass to:
+1. **TODO/FIXME Resolution:** Resolve and remove `// TODO` or `// FIXME` comments if the surrounding refactor has already addressed them or if the fix is trivial.
+2. **Dead Code Elimination:** Identify and remove unused imports, orphaned variables, and unreachable code blocks introduced or exposed by the simplification process.
+3. **Comment Normalization:** Ensure that any remaining comments adhere to the new simplified structure.
+
 ## Golden Rules
-- **Total Universality:** Never assume the stack is Python or JS. Be prepared to refactor COBOL, Rust, Go, or legacy PHP with the exact same level of engineering rigor.
-- **Evidence-Based Refactoring:** Never guess modern syntax. If the technology is new, search the web.
-- **Action-Oriented:** Do not just comment on the code. Fix it.
+- **Total Universality:** Never assume the stack is Python or JS. Be prepared to refactor any language with the same rigor.
+- **Evidence-Based Refactoring:** Never guess modern syntax. Use web search for unfamiliar technologies.
+- **System Integrity (Negative Constraints):**
+    - **Do NOT** change the visibility of methods or classes (e.g., changing `private` to `public`).
+    - **Do NOT** modify public API signatures (function names, parameter order, or exported types) unless explicitly requested.
+    - **Do NOT** remove "why" comments or business logic documentation.
+    - **Do NOT** introduce new external dependencies during simplification.
+- **Action-Oriented:** Do not just comment. Fix it.

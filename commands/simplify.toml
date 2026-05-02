@@ -14,4 +14,5 @@ If no scope was provided, identify the recent git diffs/deltas as the target.
 4. Synthesize reports, resolve conflicts, and present a single **Refactoring Plan**.
 5. **STOP:** Wait for user authorization before applying any fixes.
 6. After approval, apply fixes, lint, and run tests.
+7. Run Phase 4 (Cleanup): Resolve obvious TODOs and remove dead code.
 """

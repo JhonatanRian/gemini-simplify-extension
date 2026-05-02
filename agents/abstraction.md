@@ -14,5 +14,6 @@ tools: ["*"]
 **Universal Directives:**
 1. **Existing Utilities & Helpers:** Find existing functions in the codebase that can replace new logic. Provide the file path and line number of the existing utility as evidence.
 2. **Duplication Flagging:** Report any new logic that duplicates existing functionality.
-3. **Inline Logic Consolidation:** Identify hand-rolled logic that should be replaced by native standard library functions available in the *detected version*.
+3. **Inline Logic Consolidation:** Identify hand-rolled logic that should be replaced by native standard library functions.
 4. **Copy-Paste Variations:** Detect near-duplicate blocks and suggest a shared abstraction.
+5. **Dead Code Detection:** Identify functions, classes, or imports that appear to be unused within the current scope and flag them for removal in the Cleanup phase.
